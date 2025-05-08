@@ -62,6 +62,20 @@ const Home = () => {
     navigate("/login");
   };
 
+  const handleDelete = async (entryId) => {
+    try {
+      await axios.delete(
+        `https://echoverse-zvsj.onrender.com/entry/${entryId}`,
+        {
+          headers: { Authorization: `Bearer ${auth.token}` },
+        }
+      );
+      setEntries(entries.filter((entry) => entry._id !== entryId));
+    } catch (err) {
+      console.error("Error deleting entry:", err);
+    }
+  };
+
   return (
     <div className="home">
       {/* 🔹 Hamburger Menu with Checkbox Toggle */}
@@ -101,14 +115,12 @@ const Home = () => {
             <button onClick={() => navigate(`/entry/${entry.id}`)}>
               🔓 Open
             </button>
-            <button onClick={() => console.log("Delete logic here")}>
-              🗑 Delete
-            </button>
+            <button onClick={() => handleDelete(entry.id)}>🗑 Delete</button>
           </div>
         ))
       )}
       <footer>
-      <p>&copy; 2025 Pushan Sinha. All rights reserved.</p>
+        <p>&copy; 2025 Pushan Sinha. All rights reserved.</p>
       </footer>
     </div>
   );
