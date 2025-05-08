@@ -7,6 +7,7 @@ import Home from "./pages/Home"; // your home/dashboard page
 import Login from "./pages/login";
 import AudioDiaryForm from "./pages/AudioDiaryForm";
 import AudioPlayer from "./pages/AudioPlayer";
+import './App.css'
 
 function App() {
   return (

@@ -50,12 +50,6 @@ entryRouter.get("/:id/audio", async (req, res) => {
       });
     }
 
-    // Optional: Mark entry as unlocked
-    if (!entry.isUnlocked) {
-      entry.isUnlocked = true;
-      await entry.save();
-    }
-
     // ✅ Send audio URL
     return res.status(200).json({ entry });
   } catch (error) {

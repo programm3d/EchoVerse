@@ -5,9 +5,17 @@ const entryRouter = require("./Routes/entry.route");
 const cors = require("cors");
 require("dotenv").config();
 
+
+const corsOptions = {
+  origin: 'https://candid-caramel-5bb492.netlify.app', // Allow only this domain
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
+};
+
+
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 mongoose
   .connect(process.env.MONGO_URI)

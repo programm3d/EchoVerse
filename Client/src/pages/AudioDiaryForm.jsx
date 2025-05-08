@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 function AudioDiaryForm() {
   const navigate = useNavigate();
@@ -76,7 +76,7 @@ function AudioDiaryForm() {
       // 2. Submit to backend with Cloudinary Public ID
       const token = localStorage.getItem("token");
       await axios.post(
-        "http://localhost:8080/entry/add-new", // Backend API
+        "https://echoverse-zvsj.onrender.com/entry/add-new", // Backend API
         {
           title: form.title,
           mood: form.mood,
@@ -95,7 +95,7 @@ function AudioDiaryForm() {
       setForm({ title: "", mood: "", unlockAt: "" });
       setAudioBlob(null);
       setAudioUrl("");
-      navigate('/');
+      navigate("/");
     } catch (error) {
       console.error(
         "Upload Error:",
@@ -106,48 +106,57 @@ function AudioDiaryForm() {
   };
 
   return (
-    <div style={{ maxWidth: 500, margin: "auto" }}>
-      <h2>🎙️ New Audio Diary Entry</h2>
-      <input
-        type="text"
-        name="title"
-        placeholder="Title"
-        value={form.title}
-        onChange={handleInputChange}
-        required
-      />
-      <br />
-      <input
-        type="text"
-        name="mood"
-        placeholder="Mood (😊)"
-        value={form.mood}
-        onChange={handleInputChange}
-        required
-      />
-      <br />
-      <input
-        type="datetime-local"
-        name="unlockAt"
-        value={form.unlockAt}
-        onChange={handleInputChange}
-        required
-      />
-      <br />
-      <br />
-      {!recording ? (
-        <button onClick={startRecording}>Start Recording</button>
-      ) : (
-        <button onClick={stopRecording}>Stop Recording</button>
-      )}
-      <br />
-      {audioUrl && (
-        <>
-          <audio controls src={audioUrl}></audio>
-          <br />
-          <button onClick={uploadAndSubmit}>Submit Entry</button>
-        </>
-      )}
+    <div className="audio-form">
+      <div className="nav">
+        <p>EchoVerse</p>
+        <button onClick={() => navigate("/")}>Goto Home</button>
+      </div>
+      <div style={{ maxWidth: 500, margin: "auto" }}>
+        <h2>🎙️ New Audio Diary Entry</h2>
+        <input
+          type="text"
+          name="title"
+          placeholder="Title"
+          value={form.title}
+          onChange={handleInputChange}
+          required
+        />
+        <br />
+        <input
+          type="text"
+          name="mood"
+          placeholder="Mood (😊)"
+          value={form.mood}
+          onChange={handleInputChange}
+          required
+        />
+        <br />
+        <input
+          type="datetime-local"
+          name="unlockAt"
+          value={form.unlockAt}
+          onChange={handleInputChange}
+          required
+        />
+        <br />
+        <br />
+        {!recording ? (
+          <button onClick={startRecording}>Start Recording</button>
+        ) : (
+          <button onClick={stopRecording}>Stop Recording</button>
+        )}
+        <br />
+        {audioUrl && (
+          <>
+            <audio controls src={audioUrl}></audio>
+            <br />
+            <button onClick={uploadAndSubmit}>Submit Entry</button>
+          </>
+        )}
+      </div>
+      <footer>
+      <p>&copy; 2025 Pushan Sinha. All rights reserved.</p>
+      </footer>
     </div>
   );
 }

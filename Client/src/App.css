@@ -1,0 +1,247 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #309898; /* Teal */
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Logo */
+.logo p {
+  font-size: 26px;
+  font-weight: bold;
+  color: #ff9f00; /* Orange */
+  text-align: center;
+}
+
+/* Containers */
+.signup,
+.login,
+.home,
+.audio-form,
+.audio-player {
+  background-color: #f4631e; /* Fiery Red */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  text-align: center;
+}
+
+/* Navigation Bar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  background-color: #ff9f00; /* Orange */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav p {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav button {
+  background-color: #cb0404; /* Deep Crimson */
+  color: white;
+  width: 130px;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav button:hover {
+  background-color: #f4631e; /* Fiery Red */
+}
+
+/* Headings */
+h2 {
+  color: #cb0404; /* Deep Crimson */
+  margin-bottom: 20px;
+}
+
+/* Input Fields */
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0px;
+  background-color: #cb0404; /* Deep Crimson */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #ff9f00; /* Orange */
+}
+
+/* Links */
+p a {
+  color: #ff9f00; /* Orange */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* Audio Player */
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Home Page: Entries */
+.entry-card {
+  border: 2px solid #cb0404; /* Deep Crimson */
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px 0;
+  background-color: #ff9f00; /* Orange */
+  text-align: left;
+}
+
+.entry-card p {
+  margin: 5px 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* Hide the checkbox */
+.menu-checkbox {
+  display: none;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Default Nav Links */
+.nav-links {
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  background-color: #ff9f00; /* Orange */
+   position: absolute;
+  top: 32px;
+  width: fit-content;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu-checkbox:checked ~ .nav-links {
+  display: flex; 
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; 
+    flex-direction: column;
+    background-color: #ff9f00; 
+    position: absolute;
+    top: 4%;
+    left: 140px;
+    width: 40%;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* ✅ Corrected Toggle */
+  .menu-checkbox:checked ~ .nav-links {
+    display: flex; /* Show menu when checked */
+  }
+
+  .nav-links button {
+    width: 100%;
+  }
+}
+
+/* 🔹 Responsive Design 🔹 */
+@media (max-width: 768px) {
+  .signup,
+  .login,
+  .home,
+  .audio-form,
+  .audio-player {
+    width: 90%;
+    height: 90%;
+    padding: 20px;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav button {
+    width: 100%;
+  }
+
+  .entry-card {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo p {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .nav p {
+    font-size: 18px;
+  }
+
+  .signup,
+  .login,
+  .home,
+  .audio-form,
+  .audio-player {
+    padding: 15px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
