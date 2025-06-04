@@ -121,7 +121,7 @@ CLOUDINARY_API_SECRET=xxx
 # Live Links (Deployed)
 
 - [Backend](https://echoverse-zvsj.onrender.com/)
-- [Frontend](https://candid-caramel-5bb492.netlify.app/)
+- [Frontend](https://echhoversse.netlify.app/)
 
 # 🤝 Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you’d like to change.
