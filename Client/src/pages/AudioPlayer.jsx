@@ -42,7 +42,7 @@ const AudioPlayer = () => {
     <div className="audio-player">
       <div className="nav">
         <p>EchoVerse</p>
-        <button onClick={()=> navigate('/')}>Goto Home</button>
+        <button onClick={()=> navigate('/home')}>Goto Home</button>
       </div>
       <div style={{ padding: "20px" }}>
         <h2>{entry.title}</h2>

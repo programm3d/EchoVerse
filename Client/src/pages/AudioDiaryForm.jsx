@@ -95,7 +95,7 @@ function AudioDiaryForm() {
       setForm({ title: "", mood: "", unlockAt: "" });
       setAudioBlob(null);
       setAudioUrl("");
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.error(
         "Upload Error:",
@@ -109,7 +109,7 @@ function AudioDiaryForm() {
     <div className="audio-form">
       <div className="nav">
         <p>EchoVerse</p>
-        <button onClick={() => navigate("/")}>Goto Home</button>
+        <button onClick={() => navigate("/home")}>Goto Home</button>
       </div>
       <div style={{ maxWidth: 500, margin: "auto" }}>
         <h2>🎙️ New Audio Diary Entry</h2>
